@@ -79,15 +79,15 @@ public class SCLAlertView: UIViewController {
     let kCircleIconHeight: CGFloat = 20.0
     let kTitleTop:CGFloat = 30.0
     let kTitleHeight:CGFloat = 40.0
-    let kWindowWidth: CGFloat = 240.0
+    let kWindowWidth: CGFloat = 270.0
     var kWindowHeight: CGFloat = 178.0
     var kTextHeight: CGFloat = 90.0
     let kTextFieldHeight: CGFloat = 45.0
-    let kButtonHeight: CGFloat = 45.0
+    let kButtonHeight: CGFloat = 52.0
     
     // Font
-    let kDefaultFont = "HelveticaNeue"
-    let kButtonFont = "HelveticaNeue-Bold"
+    let kDefaultFont = "Open Sans"
+    let kButtonFont = "Open Sans-Bold"
     
     // UI Colour
     var viewColor = UIColor()
@@ -223,7 +223,7 @@ public class SCLAlertView: UIViewController {
         }
         // Buttons
         for btn in buttons {
-            btn.frame = CGRect(x:12, y:y, width:kWindowWidth - 24, height:35)
+            btn.frame = CGRect(x:0, y:y, width:kWindowWidth - 0, height:52)
             btn.layer.cornerRadius = buttonCornerRadius
             y += kButtonHeight
         }

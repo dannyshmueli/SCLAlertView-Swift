@@ -86,8 +86,8 @@ public class SCLAlertView: UIViewController {
     let kButtonHeight: CGFloat = 52.0
     
     // Font
-    let kDefaultFont = "Open Sans"
-    let kButtonFont = "Open Sans-Bold"
+    let kDefaultFont = "OpenSans"
+    let kButtonFont = "OpenSans-Bold"
     
     // UI Colour
     var viewColor = UIColor()
@@ -96,9 +96,9 @@ public class SCLAlertView: UIViewController {
     // UI Options
     public var showCloseButton = true
     public var showCircularIcon = true
-    public var contentViewCornerRadius : CGFloat = 5.0
+    public var contentViewCornerRadius : CGFloat = 0.0
     public var fieldCornerRadius : CGFloat = 3.0
-    public var buttonCornerRadius : CGFloat = 3.0
+    public var buttonCornerRadius : CGFloat = 0.0
     
     // Members declaration
     var baseView = UIView()
@@ -132,7 +132,7 @@ public class SCLAlertView: UIViewController {
         contentView.backgroundColor = UIColor(white:1, alpha:1)
         contentView.layer.cornerRadius = contentViewCornerRadius
         contentView.layer.masksToBounds = true
-        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderWidth = 0.0
         contentView.addSubview(labelTitle)
         contentView.addSubview(viewText)
         // Circle View
@@ -156,8 +156,8 @@ public class SCLAlertView: UIViewController {
         viewText.font = UIFont(name: kDefaultFont, size:14)
         // Colours
         contentView.backgroundColor = UIColorFromRGB(0xFFFFFF)
-        labelTitle.textColor = UIColorFromRGB(0x4D4D4D)
-        viewText.textColor = UIColorFromRGB(0x4D4D4D)
+        labelTitle.textColor = UIColorFromRGB(0x262F50)
+        viewText.textColor = UIColorFromRGB(0x262F50)
         contentView.layer.borderColor = UIColorFromRGB(0xCCCCCC).CGColor
         //Gesture Recognizer for tapping outside the textinput
         let tapGesture = UITapGestureRecognizer(target: self, action: Selector("dismissKeyboard"))
@@ -196,7 +196,7 @@ public class SCLAlertView: UIViewController {
             viewText.scrollEnabled = false
         }
         
-        let windowHeight = consumedHeight + viewTextHeight
+        let windowHeight = consumedHeight + viewTextHeight - 13
         // Set frames
         var x = (sz.width - kWindowWidth) / 2
         var y = (sz.height - windowHeight - (kCircleHeight / 8)) / 2

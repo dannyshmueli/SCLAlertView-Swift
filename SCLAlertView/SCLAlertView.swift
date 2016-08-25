@@ -266,13 +266,14 @@ public class SCLAlertView: UIViewController {
         return txt
     }
     
-    public func addButton(title:String, action:()->Void)->SCLButton {
+    public func addButton(title:String, color:UIColor = UIColor(red: 248.0/255.0, green: 122.0/255.0, blue: 124.0/255.0, alpha: 1.0), action:()->Void)->SCLButton {
         let btn = addButton(title)
         btn.actionType = SCLActionType.Closure
         btn.action = action
         btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
         btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:[.TouchDown, .TouchDragEnter])
         btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
+        btn.backgroundColor = color
         return btn
     }
     
@@ -496,7 +497,7 @@ public class SCLAlertView: UIViewController {
             txt.layer.borderColor = viewColor.CGColor
         }
         for btn in buttons {
-            btn.backgroundColor = viewColor
+//            btn.backgroundColor = viewColor
             btn.setTitleColor(UIColorFromRGB(colorTextButton!), forState:UIControlState.Normal)
         }
         

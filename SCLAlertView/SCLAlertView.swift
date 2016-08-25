@@ -25,6 +25,7 @@ public class SCLButton: UIButton {
     var target:AnyObject!
     var selector:Selector!
     var action:(()->Void)!
+    var custonBackgroundColor:UIColor?
     
     public init() {
         super.init(frame: CGRectZero)
@@ -273,7 +274,7 @@ public class SCLAlertView: UIViewController {
         btn.addTarget(self, action:Selector("buttonTapped:"), forControlEvents:.TouchUpInside)
         btn.addTarget(self, action:Selector("buttonTapDown:"), forControlEvents:[.TouchDown, .TouchDragEnter])
         btn.addTarget(self, action:Selector("buttonRelease:"), forControlEvents:[.TouchUpInside, .TouchUpOutside, .TouchCancel, .TouchDragOutside] )
-        btn.backgroundColor = color
+        btn.custonBackgroundColor = color
         return btn
     }
     
@@ -325,7 +326,7 @@ public class SCLAlertView: UIViewController {
     }
     
     func buttonRelease(btn:SCLButton) {
-        btn.backgroundColor = viewColor
+        btn.backgroundColor = btn.custonBackgroundColor ?? viewColor
     }
     
     var tmpContentViewFrameOrigin: CGPoint?
@@ -497,7 +498,7 @@ public class SCLAlertView: UIViewController {
             txt.layer.borderColor = viewColor.CGColor
         }
         for btn in buttons {
-//            btn.backgroundColor = viewColor
+            btn.backgroundColor = btn.custonBackgroundColor ?? viewColor
             btn.setTitleColor(UIColorFromRGB(colorTextButton!), forState:UIControlState.Normal)
         }
         
